@@ -4,7 +4,7 @@ import getFileLines
 
 fun part2() {
     val lines = getFileLines("day8.txt")
-    val sum = lines.map { line ->
+    val sum = lines.sumOf { line ->
         val (input, output) = line.split(" | ")[0].split(" ") to line.split(" | ")[1].split(" ")
         val one = input.find { it.length == 2 }!!.toList().sorted().joinToString("")
         val four = input.find { it.length == 4 }!!.toList().sorted().joinToString("")
@@ -40,7 +40,7 @@ fun part2() {
         )
 
         output.map { it.toList().sorted().joinToString("") }.map { numbersMap[it]!! }.joinToString("").toInt()
-    }.sum()
+    }
     println("Part 2: $sum")
 }
 
